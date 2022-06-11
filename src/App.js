@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useEffect} from "react";
 
 function App() {
+  const [data,setData]=useState([])
+
+  useEffect(()=>{
+    fetch('http://localhost:5205/login', {
+      method: 'GET',
+      headers: { "Content-Type": "application/json" }
+    })
+    .then((response)=>response.json())
+    .then((dato)=>setData(dato))
+  });
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data.map((dato)=>{
+        return(
+          <div style={{display:"flex"}}>
+            <h1>{dato.name}</h1>
+            <h2>{dato.password}</h2>
+          </div>
+        )
+      })}
     </div>
   );
 }
