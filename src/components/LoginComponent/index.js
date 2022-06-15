@@ -8,7 +8,7 @@ const LoginComponent =()=>{
     password: ''
   })
   const [response, setResponse] = useState();
-  
+
   const handleFormData = (e)=>{
       const {name, value} = e.target
       setFormData(prevFormData=> ({
@@ -26,7 +26,8 @@ const LoginComponent =()=>{
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(login)
     }).then(Response=>{
-      if(Response.ok == true){
+      // console.log(Response.status);
+      if(Response.ok === true){
         toast.success('Login Successful')
       }else{
         toast.error('Login Failed')
