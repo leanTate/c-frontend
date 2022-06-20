@@ -1,8 +1,10 @@
 import Hero from '../../assets/imgs/1.svg'
 import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const LoginComponent =()=>{
+  const Navigate  =useNavigate()
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -29,6 +31,7 @@ const LoginComponent =()=>{
       // console.log(Response.status);
       if(Response.ok === true){
         toast.success('Login Successful')
+        Navigate('/dashboard')
       }else{
         toast.error('Login Failed')
       }

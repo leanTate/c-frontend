@@ -14,6 +14,7 @@ code {
 }
 
 //imports Pages
-@import './app';
+@import './pages/DashBoard.scss';
 //imports Components
-@import '../components/LoginComponent/LoginComponent.scss';
+@import './components/LoginComponent.scss';
+@import './components/ProductCard.scss';	
