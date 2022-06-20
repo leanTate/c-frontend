@@ -1,0 +1,71 @@
+.navbar{
+  background-color: transparent;
+  animation: bgcolorback 0.3s linear;
+  position: fixed;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1200;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: 0;
+  font-family: 'Nunito', sans-serif;
+}
+.navbar.active{
+  background-color: #FFFF;
+  filter: drop-shadow(0px 8px 4px rgba(15, 15, 15, 0.233));
+  animation: bgcolor 0.3s linear;
+}
+.navbar-name{
+  color: #D7D7D7;
+}
+.navbar-name.active{
+  color:black;
+}
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.navbar-left{
+  display: flex;
+  align-items: center;
+}
+
+@keyframes bgcolor{
+  0%{
+      background-color: transparent;
+  }
+  100%{
+      background-color: white;
+  }
+}
+@keyframes bgcolorback{
+  0%{
+      background-color: white;
+  }
+  100%{
+      background-color: transparent;
+  }
+}
+
+.link-bar{
+  padding-right: 40px;
+}
+
+.navbarButton{
+  background-color: #6E468F;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.5s ease;
+  &:hover{
+    transform: scale(1.1);
+    color:white;
+  }
+}

@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from "react";
 import ProductCard from "../../components/ProuctCard";
+import Navbar from "../../components/Navbar";
+import { useMemo } from "react";
 
 const Dashboard =() =>{
   const [data,setData]=useState([])
@@ -15,14 +17,19 @@ const Dashboard =() =>{
   useEffect(()=>{
     console.log(data);
   },[data])
-
-  return(
-    <div className="DashBoard">
-      {data.map((data)=>{
+  const products = useMemo(()=>{
+    return data.map((data)=>{
       return(
-        <ProductCard name={data.name} price={data.price} description={data.description} image={data.image} />
+        <ProductCard key={data.id} name={data.name} price={data.price} description={data.description} image={data.image} id={data.id} />
       )
-    })}
+    })
+  },[data])
+  return(
+    <div>
+      <Navbar />
+      <div className="DashBoard">
+        {products}
+      </div>
     </div>
   )
 }
