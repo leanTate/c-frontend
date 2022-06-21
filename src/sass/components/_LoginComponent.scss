@@ -32,13 +32,12 @@
   font-weight: 6 00;
   transition: all 0.5s ease;
   cursor: pointer;
-}
-
-.form-button:hover{
-  background-color: #5B2195;
-  color: white; 
-  transform: translateY(-5px); 
-  box-shadow: -3px 3px 19px 0px rgba(0,0,0,0.75);
-  -webkit-box-shadow: -3px 3px 19px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: -3px 3px 19px 0px rgba(0,0,0,0.75);
+  &:hover{
+    background-color: #5B2195;
+    color: white; 
+    transform: translateY(-5px); 
+    box-shadow: -3px 3px 19px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -3px 3px 19px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 3px 19px 0px rgba(0,0,0,0.75);
+  }
 }

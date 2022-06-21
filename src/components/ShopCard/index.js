@@ -1,4 +1,7 @@
 import React from 'react'
+import toast from 'react-hot-toast';
+
+
 
 const ShopCard=({name,price,description,image,id,stock})=>{
   return (
@@ -8,8 +11,8 @@ const ShopCard=({name,price,description,image,id,stock})=>{
       <h2>${price}</h2>
       <p>{description}</p>
       <div className='buttons-container'>
-        <button>Shop</button>
-        <input type="number" min="1" max={stock}  placeholder="1" />
+        <button className='ShopButton'>Shop</button>
+        <input className='ShopInput' type="number" min="1" max={stock}  placeholder="1" />
       </div>
     </div>
   )
