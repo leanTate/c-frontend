@@ -9,7 +9,6 @@ const LoginComponent =()=>{
     username: '',
     password: ''
   })
-  const [response, setResponse] = useState();
 
   const handleFormData = (e)=>{
       const {name, value} = e.target

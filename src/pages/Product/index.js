@@ -13,12 +13,12 @@ const Product=()=>{
     })
     .then((response)=>response.json())
     .then((dato)=>setProduct(dato))
-  });
+  },[]);
   return (
     <div>
       <Navbar />
       <div className='Product-container'>
-      <ShopCard name={product.name} price={product.price} description={product.description} image={product.image} id={product.id} stock={product.stock} />
+      <ShopCard name={product.name} price={product.price} description={product.description} image={product.image} id={product.id} stocked={product.stock} category={product.category} />
       </div>
     </div>
   )
