@@ -3,6 +3,8 @@ import {useParams} from 'react-router-dom'
 import Navbar from '../../components/Navbar'
 import ShopCard from '../../components/ShopCard'
 
+//TODO: SEXOOOOO!!
+
 const Product=()=>{
   const params = useParams()
   const[product,setProduct]=useState([])

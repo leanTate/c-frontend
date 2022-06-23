@@ -16,7 +16,6 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
         [name]: value
       }))
   }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const {newstock} = formData
@@ -30,7 +29,7 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
     }).then(Response=>{
       // console.log(Response.status);
       if(Response.ok === true){
-        toast.success('buy Successful')
+        toast.success(`buy Successful 💰`)
         Navigate('/dashboard')
       }else{
         toast.error('buy Failed')
@@ -43,9 +42,11 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
       <img className='HeroShopCard' src={image} alt="cardHero"/>
       <h2>${price}</h2>
       <p>{description}</p>
+      <span>stock:{stocked}</span>
+      <br />
       <div className='buttons-container'>
         <form onSubmit={handleSubmit}>
-          <button className='ShopButton'>Shop</button>
+          <button className='ShopButton' disabled={formData.newstock>stocked}>Shop</button>
           <input className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder="1" />
         </form>
       </div>
