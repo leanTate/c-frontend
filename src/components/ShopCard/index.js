@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 const ShopCard=({name,price,description,image,id,stocked,category})=>{
   const Navigate  =useNavigate()
   const [formData, setFormData] = useState({
-    newstock: 0
+    newstock: null
   })
 
   const handleFormData = (e)=>{
@@ -42,12 +42,11 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
       <img className='HeroShopCard' src={image} alt="cardHero"/>
       <h2>${price}</h2>
       <p>{description}</p>
-      <span>stock:{stocked}</span>
       <br />
       <div className='buttons-container'>
         <form onSubmit={handleSubmit}>
           <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0}>Shop</button>
-          <input required className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder="1" />
+          <input required className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder={`current stock: ${stocked}`} />
         </form>
       </div>
     </div>
