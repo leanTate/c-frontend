@@ -45,7 +45,7 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
       <br />
       <div className='buttons-container'>
         <form onSubmit={handleSubmit}>
-          <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0}>Shop</button>
+          <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0}>Purchase</button>
           <input required className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder={`current stock: ${stocked}`} />
         </form>
       </div>
