@@ -55,15 +55,33 @@
 
 .link-bar{
   padding-right: 40px;
+  display: flex;
+  gap: 20px;
 }
 
 .navbarButton{
+  height: 40px;
   background-color: #6E468F;
   border: none;
   padding: 10px;
   border-radius: 10px;
   font-weight: 700;
   transition: all 0.5s ease;
+  &-user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.5s ease;
+  &:hover{
+    transform: scale(1.5);
+  }
+  }
   &:hover{
     transform: scale(1.1);
     color:white;

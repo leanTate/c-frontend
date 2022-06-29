@@ -1,11 +1,14 @@
 import React,{useState} from "react"
 import {useNavigate} from "react-router-dom"
 import icon from '../../assets/imgs/1.svg'
+import userIcon from '../../assets/imgs/user.svg'
+import DropdownMenu from "../DropdownMenu"
 
 function Navbar() {
 
     const Navigate = useNavigate()
     const [navbar,setNavbar] = useState(false);
+    const [open,setOpen]=useState(false);
 
     const changeBackground = () =>{
         if(window.scrollY>=10){
@@ -23,7 +26,13 @@ function Navbar() {
                     <img src={icon} style={{width:'100px',height:'60px',paddingRight:'10px',paddingTop:'5px'}} alt='icon' onClick={()=>Navigate("/dashboard")} />
                 </div>
                 <div className='link-bar'>
-                    <button className='navbarButton' onClick={()=>Navigate('/')}>LogOut</button>
+                    <div>
+                        <button className='navbarButton-user'  onClick={()=>setOpen(!open)}><img src={userIcon} style={{width:'25px',height:'25px'}} alt='icon'/></button>
+                        {open && <DropdownMenu open={open}/>}
+                    </div>
+                    <div>
+                        <button className='navbarButton' onClick={()=>Navigate('/')}>LogOut</button>
+                    </div>
                 </div>
             </div>
         </nav>
