@@ -4,7 +4,7 @@ import icon from '../../assets/imgs/1.svg'
 import userIcon from '../../assets/imgs/user.svg'
 import DropdownMenu from "../DropdownMenu"
 
-function Navbar() {
+function Navbar({logged}) {
 
     const Navigate = useNavigate()
     const [navbar,setNavbar] = useState(false);
@@ -28,7 +28,7 @@ function Navbar() {
                 <div className='link-bar'>
                     <div>
                         <button className='navbarButton-user'  onClick={()=>setOpen(!open)}><img src={userIcon} style={{width:'25px',height:'25px'}} alt='icon'/></button>
-                        {open && <DropdownMenu open={open}/>}
+                        <DropdownMenu open={open}/>
                     </div>
                     <div>
                         <button className='navbarButton' onClick={()=>Navigate('/')}>LogOut</button>

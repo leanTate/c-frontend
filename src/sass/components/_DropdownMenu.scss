@@ -1,7 +1,7 @@
 .dropdown{
   position: absolute;
-  top: 68px;
-  left: -45%;
+  top: -172px;
+  opacity: 0;
   width: 200px;
   right: 60px;
   border: 1px;
@@ -9,20 +9,22 @@
   padding: 1rem;
   overflow: hidden;
   background-color: white;
-  animation: CloseAnimation 150ms ease;
-}
-.dropdown-open{
-  position: absolute;
+  animation: closeAnimation 150ms ease;
+  &-open{
+    position: absolute;
   top: 68px;
   width: 200px;
   right: 60px;
+  opacity: 1;
   animation: openAnimation 150ms ease;
   border: 1px;
   border-radius: 10px;
   padding: 1rem;
   overflow: hidden;
   background-color: white;
+  }
 }
+
 .menu-item{
   height: 50px;
   display: flex;
@@ -73,6 +75,7 @@
   background-color: rgb(141, 141, 141);
   padding: 5px;
   margin: 2px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -91,12 +94,13 @@
   }
 }
 
-@keyframes CloseAnimation{
+@keyframes closeAnimation{
   0%{
-    opacity: 1 ;
+    opacity: 1;
+    transform: translatey(0%);
   }
   100%{
     opacity: 0;
-    transform: translatey(80%);
+    transform: translatey(-80%);
   }
 }

@@ -26,7 +26,6 @@ const Dashboard =() =>{
   },[data])
   return(
     <div>
-      <Navbar />
       <div className="DashBoard">
         {products}
       </div>

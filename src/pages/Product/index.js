@@ -18,7 +18,6 @@ const Product=()=>{
   },[]);
   return (
     <div>
-      <Navbar />
       <div className='Product-container'>
       <ShopCard name={product.name} price={product.price} description={product.description} image={product.image} id={product.id} stocked={product.stock} category={product.category} />
       </div>
