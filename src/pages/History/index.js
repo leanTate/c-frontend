@@ -1,4 +1,5 @@
 import React,{useMemo,useState,useEffect} from 'react'
+import HistoryCard from '../../components/HistoryCard';
 
 function History() {
   const [data,setData]=useState([])
@@ -17,14 +18,14 @@ function History() {
   const Purchase = useMemo(()=>{
     return data.map((data)=>{
       return(
-        data.products
+        <HistoryCard employee={data.employee} products={data.products} purchaseDate={data.purchaseDate} cost={data.cost} />
       )
     })
   },[data])
   return (
-    <div>
+    <section className='historyPage'>
       {Purchase}
-    </div>
+    </section>
   )
 }
 

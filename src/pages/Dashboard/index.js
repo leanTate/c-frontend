@@ -4,7 +4,6 @@ import { useMemo } from "react";
 
 const Dashboard =() =>{
   const [data,setData]=useState([])
-
   useEffect(()=>{
     fetch('http://localhost:5205/Product', {
       method: 'GET',

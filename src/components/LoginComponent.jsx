@@ -1,9 +1,11 @@
 import Hero from '../assets/imgs/1.svg'
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
+import GlobalContext from '../context/GlobalContext';
 
 const LoginComponent =()=>{
+  const {setUser} = useContext(GlobalContext);
   const Navigate  =useNavigate()
   const [formData, setFormData] = useState({
     username: '',
@@ -29,6 +31,7 @@ const LoginComponent =()=>{
     }).then(Response=>{
       // console.log(Response.status);
       if(Response.ok === true){
+        setUser(username);
         toast.success('Login Successful')
         Navigate('/dashboard')
       }else{

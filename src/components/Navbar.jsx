@@ -1,14 +1,15 @@
-import React,{useState} from "react"
+import React,{useState,useContext} from "react"
 import {useNavigate} from "react-router-dom"
 import icon from '../assets/imgs/1.svg'
 import userIcon from '../assets/imgs/user.svg'
 import DropdownMenu from "./DropdownMenu"
+import GlobalContext from "../context/GlobalContext";
 
 function Navbar({logged}) {
 
     const Navigate = useNavigate()
     const [navbar,setNavbar] = useState(false);
-    const [open,setOpen]=useState(false);
+    const {dropdown,setDropdown} = useContext(GlobalContext);
 
     const changeBackground = () =>{
         if(window.scrollY>=10){
@@ -27,8 +28,8 @@ function Navbar({logged}) {
                 </div>
                 <div className='link-bar'>
                     <div>
-                        <button className='navbarButton-user'  onClick={()=>setOpen(!open)}><img src={userIcon} style={{width:'25px',height:'25px'}} alt='icon'/></button>
-                        <DropdownMenu open={open}/>
+                        <button className='navbarButton-user'  onClick={()=>setDropdown(!dropdown)}><img src={userIcon} style={{width:'25px',height:'25px'}} alt='icon'/></button>
+                        <DropdownMenu open={dropdown}/>
                     </div>
                     <div>
                         <button className='navbarButton' onClick={()=>Navigate('/')}>LogOut</button>

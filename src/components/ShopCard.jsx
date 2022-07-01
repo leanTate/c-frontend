@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom'
 const ShopCard=({name,price,description,image,id,stocked,category})=>{
   const Navigate  =useNavigate()
   const [formData, setFormData] = useState({
-    newstock: null
+    newstock: null,
   })
 
   const handleFormData = (e)=>{

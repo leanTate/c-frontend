@@ -14,7 +14,7 @@ const Product=()=>{
     })
     .then((response)=>response.json())
     .then((dato)=>setProduct(dato))
-  },[]);
+  },[params.id]);
   return (
     <div>
       <div className='Product-container'>
