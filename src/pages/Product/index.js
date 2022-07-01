@@ -1,6 +1,5 @@
 import React,{useEffect,useState} from 'react'
 import {useParams} from 'react-router-dom'
-import Navbar from '../../components/Navbar'
 import ShopCard from '../../components/ShopCard'
 
 //TODO: SEXOOOOO!!

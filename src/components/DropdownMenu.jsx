@@ -1,16 +1,23 @@
 import React from 'react'
 import { useState } from 'react';
 import { CSSTransition } from "react-transition-group"
-import ShopIcon from './../../assets/imgs/cart.svg'
+import ShopIcon from '../assets/imgs/cart.svg'
 import { useNavigate } from 'react-router-dom';
-import { useTransition } from 'react';
+import { useEffect } from 'react';
 
 function DropdownMenu({open}) {
   const[activeMenu,setActiveMenu]=useState('main');
   const Navigate = useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
+  useEffect(()=>{
+    setShowMenu(open);
+  },[open])
   function DropdownItem({leftIcon,children,rightIcon,nav}){
     return(
-      <a  href onClick={()=>Navigate(nav)} className='menu-item'>
+      <a  href onClick={()=>{
+        Navigate(nav)
+        setShowMenu(false);
+      }} className='menu-item'>
         <span className='icon-button'><img width="16px" src={leftIcon} alt="ashe"/></span>
         <span style={{paddingLeft:'10px'}}>{children}</span>
         <span className='icon-right'>{rightIcon}</span>
@@ -18,7 +25,7 @@ function DropdownMenu({open}) {
     )
   }
   return (
-    <div className={open === false ?'dropdown' : 'dropdown-open'}>
+    <div className={showMenu === false ?'dropdown' : 'dropdown-open'}>
       <CSSTransition in={activeMenu==='main'} timeout={500} classNames='menu-primary' unmountOnExit>
         <div className='menu'>
           <DropdownItem leftIcon={ShopIcon} nav="/cart">Cart</DropdownItem>

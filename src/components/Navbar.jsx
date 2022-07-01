@@ -1,8 +1,8 @@
 import React,{useState} from "react"
 import {useNavigate} from "react-router-dom"
-import icon from '../../assets/imgs/1.svg'
-import userIcon from '../../assets/imgs/user.svg'
-import DropdownMenu from "../DropdownMenu"
+import icon from '../assets/imgs/1.svg'
+import userIcon from '../assets/imgs/user.svg'
+import DropdownMenu from "./DropdownMenu"
 
 function Navbar({logged}) {
 

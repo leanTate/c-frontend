@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from "react";
-import ProductCard from "../../components/ProuctCard";
-import Navbar from "../../components/Navbar";
+import ProductCard from "../../components/ProductCard";
 import { useMemo } from "react";
 
 const Dashboard =() =>{

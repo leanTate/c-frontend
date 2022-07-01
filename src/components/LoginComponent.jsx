@@ -1,4 +1,4 @@
-import Hero from '../../assets/imgs/1.svg'
+import Hero from '../assets/imgs/1.svg'
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
