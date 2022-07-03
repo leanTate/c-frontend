@@ -1,5 +1,5 @@
 import React,{useMemo,useState,useEffect} from 'react'
-import HistoryCard from '../../components/HistoryCard';
+import HistoryCard from '../components/HistoryCard';
 
 function History() {
   const [data,setData]=useState([])

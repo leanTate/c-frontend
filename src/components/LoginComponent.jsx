@@ -2,10 +2,10 @@ import Hero from '../assets/imgs/1.svg'
 import {useState, useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
-import GlobalContext from '../context/GlobalContext';
+import { useAuthContext } from '../auth/context/AuthContex';
 
 const LoginComponent =()=>{
-  const {setUser} = useContext(GlobalContext);
+  const { login } = useAuthContext();
   const Navigate  =useNavigate()
   const [formData, setFormData] = useState({
     username: '',
@@ -23,15 +23,15 @@ const LoginComponent =()=>{
   const handleSubmit = (e) => {
     e.preventDefault();
     const {username,password} = formData
-    const login = {username,password};
-    fetch('http://localhost:5205/login', {
+    const log = {username,password};
+    fetch('https://uai-proyect.herokuapp.com/login', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(login)
+      body: JSON.stringify(log)
     }).then(Response=>{
       // console.log(Response.status);
       if(Response.ok === true){
-        setUser(username);
+        login(username)
         toast.success('Login Successful')
         Navigate('/dashboard')
       }else{
@@ -40,7 +40,7 @@ const LoginComponent =()=>{
     })
   }
   return(
-    <div style={{display:'flex',justifyContent:'center',alignContent:'center',margin:'180px 0 0px 0'}}>
+    <div style={{display:'flex',justifyContent:'center',alignContent:'center',paddingTop:'5%'}}>
       <div  className="Card">
         <div className="form-container">
           <form onSubmit={handleSubmit}>

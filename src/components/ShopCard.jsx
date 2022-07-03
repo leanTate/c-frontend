@@ -1,13 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import {toast} from 'react-hot-toast'
 import {useNavigate} from 'react-router-dom'
-
 //62ae6af1f46e0a11e21dfa4a
-const ShopCard=({name,price,description,image,id,stocked,category})=>{
-  const Navigate  =useNavigate()
+const ShopCard=({name,price,description,image,id,stocked,category,provider,state})=>{
+  const Navigate  =useNavigate();
   const [formData, setFormData] = useState({
     newstock: null,
-  })
+  });
 
   const handleFormData = (e)=>{
       const {name, value} = e.target
@@ -19,8 +18,8 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
   const handleSubmit = (e) => {
     e.preventDefault();
     const {newstock} = formData
-    let stock = stocked - newstock; 
-    const update = {name,price,description,image,category,stock};
+    let stock = stocked - newstock;
+    const update = {name,price,description,image,category,stock,provider};
     console.log(update);
     fetch(`http://localhost:5205/Product/${id}`, {
       method: 'PUT',
@@ -31,26 +30,30 @@ const ShopCard=({name,price,description,image,id,stocked,category})=>{
       if(Response.ok === true){
         toast.success(`buy Successful 💰`)
         Navigate('/dashboard')
+        if(stock ===0){alert(`hola, ${provider} necesitamos un stock de 500 de ${name}`)}
       }else{
         toast.error('buy Failed')
       }
     })
   }
-  return (
-    <div className='ShopCard'>
-      <h1>{name}</h1>
-      <img className='HeroShopCard' src={image} alt="cardHero"/>
-      <h2>${price}</h2>
-      <p>{description}</p>
-      <br />
-      <div className='buttons-container'>
-        <form onSubmit={handleSubmit}>
-          <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0}>Purchase</button>
-          <input required className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder={`current stock: ${stocked}`} />
-        </form>
+    return (
+      <div className='ShopCard'>
+        <h1>{name}</h1>
+        <img className='HeroShopCard' src={image} alt="cardHero"/>
+        <h2>${price}</h2>
+        <p>{description}</p>
+          <div className='skeleton'>
+            <div></div>
+          </div>
+        <br />
+        <div className='buttons-container'>
+          <form onSubmit={handleSubmit}>
+            <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0}>Purchase</button>
+            <input required className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder={`current stock: ${stocked}`} />
+          </form>
+        </div>
       </div>
-    </div>
-  )
+    )
 }
 
 export default ShopCard;

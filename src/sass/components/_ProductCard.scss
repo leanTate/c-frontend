@@ -7,6 +7,7 @@
   padding: 20px;
   border-radius: 10px;
   transition: all 0.5s ease;
+  cursor: pointer;
   &:hover{
     transform: translateY(-10px);
     box-shadow: -5px 11px 19px 0px rgba(0,0,0,0.75);

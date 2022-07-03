@@ -1,15 +1,15 @@
-import React,{useState,useContext} from "react"
+import React,{useState} from "react"
 import {useNavigate} from "react-router-dom"
 import icon from '../assets/imgs/1.svg'
 import userIcon from '../assets/imgs/user.svg'
 import DropdownMenu from "./DropdownMenu"
-import GlobalContext from "../context/GlobalContext";
+import { useAuthContext } from "../auth/context/AuthContex"
 
 function Navbar({logged}) {
 
     const Navigate = useNavigate()
     const [navbar,setNavbar] = useState(false);
-    const {dropdown,setDropdown} = useContext(GlobalContext);
+    const {dropdown,setDropdown,logout} = useAuthContext();
 
     const changeBackground = () =>{
         if(window.scrollY>=10){
@@ -32,7 +32,12 @@ function Navbar({logged}) {
                         <DropdownMenu open={dropdown}/>
                     </div>
                     <div>
-                        <button className='navbarButton' onClick={()=>Navigate('/')}>LogOut</button>
+                        <button className='navbarButton' onClick={()=>{
+                            logout()
+                            Navigate('/')
+                            }}>
+                                LogOut
+                        </button>
                     </div>
                 </div>
             </div>
