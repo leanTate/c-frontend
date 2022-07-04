@@ -1,5 +1,5 @@
 import Hero from '../assets/imgs/1.svg'
-import {useState, useContext} from 'react';
+import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useAuthContext } from '../auth/context/AuthContex';

@@ -1,8 +1,8 @@
-import React, {useState,useContext} from 'react'
+import React, {useState} from 'react'
 import {toast} from 'react-hot-toast'
 import {useNavigate} from 'react-router-dom'
 //62ae6af1f46e0a11e21dfa4a
-const ShopCard=({name,price,description,image,id,stocked,category,provider,state})=>{
+const ShopCard=({name,price,description,image,id,stocked,category,provider})=>{
   const Navigate  =useNavigate();
   const [formData, setFormData] = useState({
     newstock: null,
@@ -20,7 +20,6 @@ const ShopCard=({name,price,description,image,id,stocked,category,provider,state
     const {newstock} = formData
     let stock = stocked - newstock;
     const update = {name,price,description,image,category,stock,provider};
-    console.log(update);
     fetch(`http://localhost:5205/Product/${id}`, {
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
@@ -30,7 +29,14 @@ const ShopCard=({name,price,description,image,id,stocked,category,provider,state
       if(Response.ok === true){
         toast.success(`buy Successful 💰`)
         Navigate('/dashboard')
-        if(stock ===0){alert(`hola, ${provider} necesitamos un stock de 500 de ${name}`)}
+        if(stock ===0){
+          const message = `hola, ${provider} necesitamos un stock de 500 unidades de ${name}`;
+          fetch('http://localhost:5205/Email',{
+            method:'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(message)
+          })
+        }
       }else{
         toast.error('buy Failed')
       }
@@ -48,7 +54,7 @@ const ShopCard=({name,price,description,image,id,stocked,category,provider,state
         <br />
         <div className='buttons-container'>
           <form onSubmit={handleSubmit}>
-            <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0}>Purchase</button>
+            <button className='ShopButton' disabled={formData.newstock>stocked && formData.newstock===0 && formData.newstock ===null}>Purchase</button>
             <input required className='ShopInput' type="number" min="1" max={stocked} name="newstock" value={formData.newstock} onChange={handleFormData}  placeholder={`current stock: ${stocked}`} />
           </form>
         </div>
