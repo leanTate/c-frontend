@@ -1,12 +1,4 @@
-export const providerMail = (message) =>{
-  fetch('http://localhost:5205/Email',{
-            method:'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(message)
-          })
-}
-
-export const PurchaseEmail=(message)=>{
+export const mail = (message) =>{
   fetch('http://localhost:5205/Email',{
             method:'POST',
             headers: { "Content-Type": "application/json" },

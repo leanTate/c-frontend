@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import {toast} from 'react-hot-toast'
 import {useNavigate} from 'react-router-dom'
-import { providerMail,PurchaseEmail,AddHistory,today,estimateday} from '../func/Functions';
+import { mail,AddHistory,today,estimateday} from '../func/Functions';
 import { useAuthContext } from '../auth/context/AuthContex';
 //62ae6af1f46e0a11e21dfa4a
 const ShopCard=({name,price,description,image,id,stocked,category,provider})=>{
@@ -38,13 +38,13 @@ const ShopCard=({name,price,description,image,id,stocked,category,provider})=>{
             message:`hola, ${provider} necesitamos un stock de 500 unidades de ${name}`,
             subject:`Necesitamos Stock ${name} esta agotado`,
           };
-          providerMail(message);
+          mail(message);
         }
         const message2 = {
           message:`hola, gracias por su compra de ${newstock} unidades de nuestro producto ${name}, llega el ${estimate}`,
           subject:`Gracias por comprar ${name} !!!`,
         }
-        PurchaseEmail(message2);
+        mail(message2);
         const Purchase={
           employee: user,
           products: name,
