@@ -19,7 +19,9 @@
 }
 
 .ShopButton{
-  width: 80px;
+  text-align: center;
+  padding: 10px;
+  width: 100px;
   height: 40px;
   margin-right: 20px;
   background-color: #6E468F;
@@ -29,6 +31,8 @@
   font-weight: 6 00;
   transition: all 0.5s ease;
   cursor: pointer;
+  color:rgb(214, 214, 214);
+  font-weight: 500;
   &:hover{
     background-color: #5B2195;
     color: white; 
@@ -45,7 +49,9 @@
 }
 
 .ShopInput{
-  width: 150px;
+  font-size: medium;
+  font-weight: 600;
+  width: 200px;
   height: 40px;
   text-align: center;
   border-radius: 5px;

@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react'
 
-const HistoryCard=({employee,products,purchaseDate,cost})=>{
+const HistoryCard=({employee,products,purchaseDate,cost,parcialCost,quantity})=>{
   return (
     <div className='historyCard'>
       <div>
@@ -8,9 +8,10 @@ const HistoryCard=({employee,products,purchaseDate,cost})=>{
       </div>
       <div>
         <ul style={{margin:'none'}}>
-            <li>{products}</li>
-          <span>Date: {purchaseDate}</span>
+            <li>product:{products} quantity:{quantity}</li>
+          <span>Purchase date: {purchaseDate}</span>
         </ul>
+        <h3 style={{margin:'none'}}>Cost: {parcialCost}</h3>
           <h3 style={{margin:'none'}}>Cost: {cost}</h3>
         <br/>
       </div>

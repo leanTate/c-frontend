@@ -1,7 +1,10 @@
 .historyPage{
   display: flex;
+  width: 95%;
+  flex-direction: column;
   justify-content: center;
   padding-top: 80px;
   padding-left: 20px;
   padding-right: 20px;
+  gap: 20px;
 }

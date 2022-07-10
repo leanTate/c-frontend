@@ -18,7 +18,7 @@ function History() {
   const Purchase = useMemo(()=>{
     return data.map((data)=>{
       return(
-        <HistoryCard employee={data.employee} products={data.products} purchaseDate={data.purchaseDate} cost={data.cost} />
+        <HistoryCard employee={data.employee} products={data.products} purchaseDate={data.purchaseDate} cost={data.cost} parcialCost={data.parcialCost} quantity={data.quantity} />
       )
     })
   },[data])
