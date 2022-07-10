@@ -1,9 +1,10 @@
 import React,{useMemo,useState,useEffect} from 'react'
 import HistoryCard from '../components/HistoryCard';
+import Loader from "../components/loader";
 
 function History() {
   const [data,setData]=useState([])
-
+  const [loading,setloading]=useState(true)
   useEffect(()=>{
     fetch('http://localhost:5205/Purchase', {
       method: 'GET',
@@ -17,16 +18,26 @@ function History() {
   },[data])
   const Purchase = useMemo(()=>{
     return data.map((data)=>{
+      setloading(false)
       return(
         <HistoryCard employee={data.employee} products={data.products} purchaseDate={data.purchaseDate} cost={data.cost} parcialCost={data.parcialCost} quantity={data.quantity} />
       )
     })
   },[data])
-  return (
-    <section className='historyPage'>
-      {Purchase}
-    </section>
-  )
+  if (loading){
+    return(
+      <div>
+        <Loader />
+      </div>
+    )
+  }else{
+    return (
+      
+      <div className='historyPage'>
+        {Purchase}
+      </div>
+    )
+  }
 }
 
 export default History

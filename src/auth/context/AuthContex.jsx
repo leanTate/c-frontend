@@ -23,11 +23,9 @@ const initialState = {
 export const AuthProvider = ({children}) => {
   const [auth, dispatch] = useReducer(authReducer, initialState, init)
 
-  useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(auth.user));
-  },[auth])
 
   const login =(name = '')=>{
+    localStorage.setItem('user', JSON.stringify(name));
     const action = {
       type: types.login,
       payload: name
@@ -36,10 +34,9 @@ export const AuthProvider = ({children}) => {
   }
 
   const logout = () => {
-    localStorage.removeItem('user')
+    localStorage.removeItem('user');
     const action = {
         type: types.logout,
-
     }
     dispatch(action)
 }
