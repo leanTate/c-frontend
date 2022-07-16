@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import { useAuthContext } from '../auth/context/AuthContex';
 import { CSSTransition } from "react-transition-group"
 import ClockIcon from '../assets/imgs/clock.svg'
+import Chart from '../assets/imgs/pie-chart.svg'
 import { useNavigate } from 'react-router-dom';
 
 function DropdownMenu() {
@@ -26,6 +27,7 @@ function DropdownMenu() {
         <div className='menu'>
           <span>Welcome {user}!</span>
           <DropdownItem leftIcon={ClockIcon} nav="/history">history</DropdownItem>
+          <DropdownItem leftIcon={Chart} nav="/graph">Graph</DropdownItem>
         </div>
       </CSSTransition>
     </div>

@@ -20,7 +20,7 @@ function History() {
     return data.map((data)=>{
       setloading(false)
       return(
-        <HistoryCard employee={data.employee} products={data.products} purchaseDate={data.purchaseDate} cost={data.cost} parcialCost={data.parcialCost} quantity={data.quantity} />
+        <HistoryCard key={data.id} employee={data.employee} products={data.products} purchaseDate={data.purchaseDate} totalcost={data.totalCost} parcialCost={data.parcialCost} quantity={data.quantity} cost={data.cost} />
       )
     })
   },[data])

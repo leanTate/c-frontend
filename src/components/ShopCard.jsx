@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import { mail,AddHistory,today,estimateday} from '../func/Functions';
 import { useAuthContext } from '../auth/context/AuthContex';
 //62ae6af1f46e0a11e21dfa4a
-const ShopCard=({name,price,description,image,id,stocked,category,provider})=>{
+const ShopCard=({name,price,description,image,id,stocked,category,provider,purchased})=>{
   const Navigate  =useNavigate();
   const {user}=useAuthContext();
   const [formData, setFormData] = useState({
@@ -23,7 +23,8 @@ const ShopCard=({name,price,description,image,id,stocked,category,provider})=>{
     const {newstock} = formData
     const estimate = estimateday();
     let stock = stocked - newstock;
-    const update = {name,price,description,image,category,stock,provider};
+    let purchases = purchased + parseInt(newstock);
+    const update = {name,price,description,image,category,stock,provider,purchases};
     fetch(`http://localhost:5205/Product/${id}`, {
       method: 'PUT',
       headers: { "Content-Type": "application/json" },

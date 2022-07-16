@@ -17,6 +17,7 @@ code {
 @import './pages/DashBoard.scss';
 @import './pages/ProductPage.scss';
 @import './pages/History.scss';
+@import './pages/Graph.scss';
 //imports Components
 @import './components/LoginComponent.scss';
 @import './components/ProductCard.scss';
@@ -26,3 +27,4 @@ code {
 @import './components/HistoryCard.scss';
 @import './components/loader.scss';
 @import './components/skeleton.scss';
+@import './components/Chart.scss';
