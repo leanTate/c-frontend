@@ -13,7 +13,8 @@ export const Loader = () => {
 export const Loadertwo = ()=>{
   return(
     <div className='wrapper'>
-      <div class="loader"></div>
+      <div class="loader2"></div>
     </div>
   )
 }
+

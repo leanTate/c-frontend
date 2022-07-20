@@ -7,7 +7,7 @@ const Product=()=>{
   const [load,setload]=useState(true)
   const[product,setProduct]=useState([])
   useEffect(()=>{
-    fetch(`http://localhost:5205/Product/${params.id}`, {
+    fetch(`https://uai-proyect.herokuapp.com/Product/${params.id}`, {
       method: 'GET',
       headers: { "Content-Type": "application/json" }
     })

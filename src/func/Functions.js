@@ -1,5 +1,5 @@
 export const mail = (message) =>{
-  fetch('http://localhost:5205/Email',{
+  fetch('https://uai-proyect.herokuapp.com/Email',{
             method:'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(message)
@@ -7,7 +7,7 @@ export const mail = (message) =>{
 }
 
 export const AddHistory=(Purchase)=>{
-  fetch('http://localhost:5205/Purchase',{
+  fetch('https://uai-proyect.herokuapp.com/Purchase',{
             method:'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(Purchase)

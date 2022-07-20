@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useAuthContext } from '../auth/context/AuthContex';
+import { Loadertwo } from './loader';
 
 const LoginComponent =()=>{
   const [load,setLoad]=useState(false);
@@ -55,7 +56,7 @@ const LoginComponent =()=>{
             <input className="from-Input" type="password" placeholder="PassWord:" required name="password" value={formData.password}  onChange={handleFormData}/>
             </div>
             <div style={{display:'flex',justifyContent:'center'}}>
-              {load===false?<button className="form-button" id="btnsbtn">logIn</button> : null}
+              {load===false?<button className="form-button" id="btnsbtn">logIn</button> : <Loadertwo />}
             </div>
           </form>
         </div>

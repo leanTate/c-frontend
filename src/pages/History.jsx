@@ -6,7 +6,7 @@ function History() {
   const [data,setData]=useState([])
   const [loading,setloading]=useState(true)
   useEffect(()=>{
-    fetch('http://localhost:5205/Purchase', {
+    fetch('https://uai-proyect.herokuapp.com/Purchase', {
       method: 'GET',
       headers: { "Content-Type": "application/json" }
     })
