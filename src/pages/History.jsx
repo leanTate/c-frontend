@@ -1,6 +1,6 @@
 import React,{useMemo,useState,useEffect} from 'react'
 import HistoryCard from '../components/HistoryCard';
-import Loader from "../components/loader";
+import {Loader} from "../components/loader";
 
 function History() {
   const [data,setData]=useState([])

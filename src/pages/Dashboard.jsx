@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import ProductCard from "../components/ProductCard";
-import Loader from "../components/loader";
+import {Loader} from "../components/loader";
 import { useMemo } from "react";
 
 const Dashboard =() =>{

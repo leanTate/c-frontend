@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { useAuthContext } from '../auth/context/AuthContex';
 
 const LoginComponent =()=>{
+  const [load,setLoad]=useState(false);
   const { login } = useAuthContext();
   const Navigate  =useNavigate()
   const [formData, setFormData] = useState({
@@ -21,6 +22,7 @@ const LoginComponent =()=>{
   }
 
   const handleSubmit = (e) => {
+    setLoad(!load)
     e.preventDefault();
     const {username,password} = formData
     const log = {username,password};
@@ -31,6 +33,7 @@ const LoginComponent =()=>{
     }).then(Response=>{
       // console.log(Response.status);
       if(Response.ok === true){
+        setLoad(!load);
         login(username)
         toast.success('Login Successful')
         Navigate('/dashboard')
@@ -52,7 +55,7 @@ const LoginComponent =()=>{
             <input className="from-Input" type="password" placeholder="PassWord:" required name="password" value={formData.password}  onChange={handleFormData}/>
             </div>
             <div style={{display:'flex',justifyContent:'center'}}>
-              <button className="form-button" id="btnsbtn">logIn</button>
+              {load===false?<button className="form-button" id="btnsbtn">logIn</button> : null}
             </div>
           </form>
         </div>
